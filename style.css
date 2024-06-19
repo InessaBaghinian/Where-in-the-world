@@ -1,0 +1,246 @@
+
+:root {
+  --darkBlue: #2b3945;
+  --veryDarkBlue: #202c37;
+  --veryDarkBlueText: #111517;
+  --darkGray: #858585;
+  --veryLightGray: #fafafa;
+  --white: #ffffff;
+  --shadow: 0 0.125rem 1rem #00000010;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  color: var(--veryDarkBlueText);
+  background-color: var(--veryLightGray);
+  min-height: 100vh;
+  display: grid;
+}
+.btn {
+  color: var(--veryDarkBlueText);
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  outline: transparent;
+  border: 1px solid var(--white);
+  border-radius: 0.25rem;
+  font-weight: 300;
+}
+.btn:is(:hover, :focus),
+.card.right:hover,
+.card.left:hover,
+.item:hover,
+input[type="text"]:hover {
+  cursor: pointer;
+}
+.btn:is(:hover, :focus) {
+  border-color: var(--veryDarkBlueText);
+}
+.btn-theme:is(:hover, :focus) {
+  border-color: var(--white);
+}
+a:is(:link, :visited, :hover, :active) {
+  color: inherit;
+  text-decoration: none;
+}
+.main-header {
+  background-color: var(--white);
+  color: var(--veryDarkBlueText);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: grid;
+  z-index: 2;
+  box-shadow: var(--shadow);
+}
+.title {
+  width: 100%;
+  max-width: 79rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.btn-theme {
+  width: 6.5rem;
+  text-transform: capitalize;
+  background-size: 1rem;
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+}
+.content {
+  width: 100%;
+  max-width: 79rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  margin-inline: auto;
+  margin-top: 6rem;
+}
+
+.smalldivs {
+  background-color: var(--white);
+  width: 16rem;
+  min-height: 18rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition-property: filter, transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in;
+  margin: 15px;
+}
+
+.content:has(.smalldivs:hover) .smalldivs:not(.smalldivs:hover) {
+  filter: opacity(0.25);
+}
+.img {
+  display: block;
+  width: 18rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height:30px;
+  
+}
+
+.input-field {
+  display: grid;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+.input-field label {
+  display: none;
+}
+.input-field input {
+  font-weight: 300;
+  color: var(--darkGray);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1.2rem;
+  background-size: 1.5rem;
+  max-width: 25rem;
+  outline: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  padding-left: 4rem;
+  box-shadow: var(--shadow);
+}
+.input-field input::placeholder {
+  color: var(--darkGray);
+}
+.select {
+  position: relative;
+}
+.btn-filter {
+  background-color: var(--white);
+  width: 10rem;
+  padding: 1rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 95%;
+  background-size: 1rem;
+  box-shadow: var(--shadow);
+}
+.list {
+  background-color: white;
+  position: absolute;
+  top: 3.5rem;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+.item {
+  list-style: none;
+  margin-bottom: 0.25rem;
+}
+.item:last-of-type {
+  margin-bottom: 0;
+}
+.item:hover {
+  text-decoration: underline;
+}
+
+.bigdiv {
+  position: static;
+  display:flex;
+ }
+
+
+
+@media screen and (min-width: 550px) {
+  .input-field {
+    grid-template-columns: 1fr auto;
+  }
+  .details {
+    align-items: start;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .title,
+  .input-field {
+    padding-inline: 2rem;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  .bigdiv {
+   
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+body.dark,
+.dark .country-card {
+  color: var(--white);
+  background-color: var(--veryDarkBlue);
+}
+.dark .btn {
+  border-color: var(--darkBlue);
+}
+.dark .btn:is(:hover, :focus) {
+  border-color: var(--white);
+}
+.dark .btn-theme:is(:hover, :focus) {
+  border-color: var(--darkBlue);
+}
+.dark .main-header,
+.dark .btn,
+.dark .smalldivs,
+.dark .input-field input,
+.dark .list {
+  color: var(--white);
+  background-color: var(--darkBlue);
+}
+.dark .input-field input::placeholder {
+  color: var(--white);
+}
+
+.hidden {
+  display: none;
+}
